@@ -6,6 +6,16 @@ services:
       - "8800:8080"
     networks:
       - net1
-  
+  keycloak:
+    image: jboss/keycloak:latest
+    environment:
+      - KEYCLOAK_USER=admin
+      - KEYCLOAK_PASSWORD=admin
+    ports:
+     - "8900:8080"
+    networks:
+      - bridge
 networks:
   net1:
+  bridge:
+    driver: bridge
